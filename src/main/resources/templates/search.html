@@ -33,12 +33,44 @@
 
         <input type="submit" value="Search" />
     </form>
+            <!--<h5 th:text="${test}"></h5> -->
+            <!--<h5 th:text="${test2}"></h5> -->
+            <!--<h3 th:text="${jobinfo}"></h3> -->
+            <!--<h3 th:text="${columns}"></h3> -->
+            <div th:if="${jobinfo} and ${jobinfo.size()}">
+            <h3 th:text="${jobinfo.size() + ' Result(s)'}"></h3>
+            </div>
+</div>
+    <div>
+        <table class="job-listing">
+            <tr th:each= "row : ${jobinfo}">
+                <tr>
+                <td>Position Type</td>
+                <td th:text="${row.position_type}"></td>
+                </tr>
+                <tr>
+                <td>Name</td>
+                <td th:text="${row.name}"></td>
+                </tr>
+                <tr>
+                <td>Employer</td>
+                <td th:text="${row.employer}"></td>
+                </tr>
+                <tr>
+                <td>Location</td>
+                <td th:text="${row.location}"></td>
+                </tr>
+                <td>Core Competency</td>
+                <td th:text="${row.core_competency}"></td>
+                </tr>
 
-    <hr />
+        </table>
+
+        <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
-</div>
+    </div>
 
 </body>
 </html>

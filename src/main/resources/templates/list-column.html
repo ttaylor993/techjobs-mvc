@@ -10,14 +10,15 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <div th:if="${items} and ${items.size()}">
+    <div th:if="${jobinfo} and ${jobinfo.size()}">
+         <h3 th:text="${jobinfo.size() + ' Result(s)'}"></h3>
 
         <table>
-            <tr th:each="item, idx : ${items}" th:class="${idx.odd} ? 'odd'">
+            <tr th:each="item, idx : ${jobinfo}" th:class="${idx.odd} ? 'odd'">
                 <td><a th:href="@{/list/jobs(column=${column},value=${item})}" th:text="${item}"></a></td>
             </tr>
         </table>
-
+        <!--<div th:replace="fragments :: jobrowlist"></div> -->
     </div>
 
 </div>
